@@ -50,7 +50,7 @@ const Cart = ({ setOpenCart }) => {
                 />
               </div>
               {/* Item length */}
-              <div className={`${styles.noramlFlex} p-4`}>
+              <div className={`${styles.normalFlex} p-4`}>
                 <IoBagHandleOutline size={25} />
                 <h5 className="pl-2 text-[20px] font-[500]">
                   {cart && cart.length} items
@@ -79,7 +79,7 @@ const Cart = ({ setOpenCart }) => {
                   className={`h-[45px] flex items-center justify-center w-[100%] bg-[#e44343] rounded-[5px]`}
                 >
                   <h1 className="text-[#fff] text-[18px] font-[600]">
-                    Checkout Now (USD${totalPrice})
+                    Checkout Now (INR₹{totalPrice})
                   </h1>
                 </div>
               </Link>
@@ -116,7 +116,7 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
       <div className="w-full flex items-center">
         <div>
           <div
-            className={`bg-[#e44343] border border-[#e4434373] rounded-full w-[25px] h-[25px] ${styles.noramlFlex} justify-center cursor-pointer`}
+            className={`bg-[#e44343] border border-[#e4434373] rounded-full w-[25px] h-[25px] ${styles.normalFlex} justify-center cursor-pointer`}
             onClick={() => increment(data)}
           >
             <HiPlus size={18} color="#fff" />
@@ -137,10 +137,10 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
         <div className="pl-[5px]">
           <h1>{data.name}</h1>
           <h4 className="font-[400] text-[15px] text-[#00000082]">
-            ${data.discountPrice} * {value}
+          INR₹{data.discountPrice} * {value}
           </h4>
           <h4 className="font-[600] text-[17px] pt-[3px] text-[#d02222] font-Roboto">
-            US${totalPrice}
+            INR₹{totalPrice}
           </h4>
         </div>
         <RxCross1

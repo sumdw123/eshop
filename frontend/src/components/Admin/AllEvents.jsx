@@ -1,6 +1,6 @@
 import { Button } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
-import axios from "axios";
+import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import {  AiOutlineEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -71,7 +71,7 @@ const AllEvents = () => {
       row.push({
         id: item._id,
         name: item.name,
-        price: "US$ " + item.discountPrice,
+        price: "INR₹ " + item.discountPrice,
         Stock: item.stock,
         sold: item.sold_out,
       });

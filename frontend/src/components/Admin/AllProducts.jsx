@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import { deleteProduct } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
-import axios from "axios";
+import axios from 'axios';
 import { server } from "../../server";
 import { useState } from "react";
 
@@ -77,7 +77,7 @@ const AllProducts = () => {
       row.push({
         id: item._id,
         name: item.name,
-        price: "US$ " + item.discountPrice,
+        price: "INR₹ " + item.discountPrice,
         Stock: item.stock,
         sold: item?.sold_out,
       });

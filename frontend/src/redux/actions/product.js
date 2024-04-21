@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import { server } from "../../server";
 
 // create product
@@ -67,6 +67,8 @@ export const getAllProductsShop = (id) => async (dispatch) => {
 };
 
 // delete product of a shop
+
+
 export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch({
@@ -85,9 +87,10 @@ export const deleteProduct = (id) => async (dispatch) => {
       payload: data.message,
     });
   } catch (error) {
+    console.error("Error deleting product:", error);
     dispatch({
       type: "deleteProductFailed",
-      payload: error.response.data.message,
+      payload: error.response ? error.response.data.message : "An error occurred while deleting the product.",
     });
   }
 };

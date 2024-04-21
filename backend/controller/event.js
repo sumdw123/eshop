@@ -92,11 +92,11 @@ router.delete(
     try {
       const event = await Event.findById(req.params.id);
 
-      if (!product) {
-        return next(new ErrorHandler("Product is not found with this id", 404));
+      if (!event) {
+        return next(new ErrorHandler("Event is not found with this id", 404));
       }    
 
-      for (let i = 0; 1 < product.images.length; i++) {
+      for (let i = 0; i < event.images.length; i++) {
         const result = await cloudinary.v2.uploader.destroy(
           event.images[i].public_id
         );
@@ -104,12 +104,12 @@ router.delete(
     
       await event.remove();
 
-      res.status(201).json({
+      res.status(200).json({
         success: true,
-        message: "Event Deleted successfully!",
+        message: "Event deleted successfully!",
       });
     } catch (error) {
-      return next(new ErrorHandler(error, 400));
+      return next(new ErrorHandler(error.message, 400));
     }
   })
 );

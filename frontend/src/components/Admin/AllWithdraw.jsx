@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import { server } from "../../server";
 import { Link } from "react-router-dom";
@@ -100,7 +100,7 @@ const AllWithdraw = () => {
         id: item._id,
         shopId: item.seller._id,
         name: item.seller.name,
-        amount: "US$ " + item.amount,
+        amount: "INR₹ " + item.amount,
         status: item.status,
         createdAt: item.createdAt.slice(0, 10),
       });

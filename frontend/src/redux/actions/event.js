@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import { server } from "../../server";
 
 // create event
@@ -42,10 +42,12 @@ export const getAllEventsShop = (id) => async (dispatch) => {
 };
 
 // delete event of a shop
+
+
 export const deleteEvent = (id) => async (dispatch) => {
   try {
     dispatch({
-      type: "deleteeventRequest",
+      type: "deleteEventRequest",
     });
 
     const { data } = await axios.delete(
@@ -56,16 +58,18 @@ export const deleteEvent = (id) => async (dispatch) => {
     );
 
     dispatch({
-      type: "deleteeventSuccess",
+      type: "deleteEventSuccess",
       payload: data.message,
     });
   } catch (error) {
+    console.error("Error deleting event:", error);
     dispatch({
-      type: "deleteeventFailed",
-      payload: error.response.data.message,
+      type: "deleteEventFailed",
+      payload: error.response ? error.response.data.message : "An error occurred while deleting the event.",
     });
   }
 };
+
 
 // get all events
 export const getAllEvents = () => async (dispatch) => {
